@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { TodoForm } from "./TodoForm";
 import { Todo } from './Todo';
 import { v4 as uuidv4 } from 'uuid';
-uuidv4();
 
 export const ToDoWrapper = () => {
   const [todos, setTodos] = useState([]);
@@ -12,11 +11,11 @@ export const ToDoWrapper = () => {
   };
 
   const toggleComplete = (id) => {
-    setTodos(todos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
+    setTodos(prevTodos => prevTodos.map(todo => todo.id === id ? { ...todo, completed: !todo.completed } : todo));
   };
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
   };
 
   const deleteAllTodos = () => {
@@ -29,8 +28,8 @@ export const ToDoWrapper = () => {
     <div className='TodoWrapper'>
       <h1>Todo App</h1>
       <TodoForm addTodo={addTodo} />
-      {todos.map((todo, index) => (
-        <Todo task={todo} key={index} toggleComplete={toggleComplete} deleteTodo={deleteTodo} />
+      {todos.map((todo) => (
+        <Todo task={todo} key={todo.id} toggleComplete={toggleComplete} deleteTodo={deleteTodo} />
       ))}
       <div className="pendingTasksContainer">
         <p className="pendingTasks">You have {pendingTasks} pending tasks</p>
