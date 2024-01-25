@@ -91,6 +91,11 @@ h1 {
   border-radius: 2px;
   margin-bottom: 0.4rem;
 }
+
+.Todo.completed{
+  text-decoration: line-through;
+}
+
 .fa-trash {
   margin-left: 0.75rem;
   margin: 0;
