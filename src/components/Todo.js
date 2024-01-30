@@ -6,7 +6,6 @@ export const Todo = ({ task, toggleComplete, deleteTodo }) => {
   const [completed, setCompleted] = useState(task.completed);
 
   useEffect(() => {
-    // Cập nhật trạng thái khi prop thay đổi
     setCompleted(task.completed);
   }, [task.completed]);
 

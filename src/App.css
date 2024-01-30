@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Đặt chiều cao của body là 100% chiều cao của viewport */
+  height: 100vh;
   margin: 0;
 
 }
@@ -37,15 +37,8 @@ h1 {
   padding: 2rem;
   border-radius: 5px;
   margin-bottom: 2rem;
-  min-width: 300px;
-  min-width: 300px; /* Đặt chiều rộng tối thiểu của TodoWrapper */
-  max-height: 400px; /* Đặt độ dài tối đa của TodoWrapper trước khi xuất hiện thanh cuộn */
-  overflow-y: auto;
-  overflow: hidden; /* Ẩn thanh cuộn mặc định */
-  transition: overflow 0.3s ease-in-out;
-}
-.TodoWrapper:hover {
-  overflow: auto; /* Hiển thị thanh cuộn khi hover */
+  max-height: 400px; 
+  overflow: hidden;
 }
 
 .TodoForm {
@@ -81,6 +74,7 @@ h1 {
   width: 2.3rem;
   height: 2.3rem;
 }
+
 .Todo {
   display: flex;
   justify-content: space-between;
@@ -161,32 +155,39 @@ h1 {
   border-radius: 2px;
   width: 70px;
 }
-/*tùy chỉnh thanh scroll/
-/* Thay đổi màu sắc và kiểu của thanh cuộn */
-.TodoWrapper::-webkit-scrollbar {
-  width: 5px;
+
+
+.TodoList:hover {
+  overflow: auto; 
 }
 
-.TodoWrapper::-webkit-scrollbar-thumb {
-  background-color: #8758ff; /* Màu của thanh cuộn */
-  border-radius: 6px; /* Bo tròn cạnh của thanh cuộn */
-}
-
-.TodoWrapper::-webkit-scrollbar-track {
-  background-color: #f3f3f3; /* Màu của phần track (phần nền của thanh cuộn) */
-}
-
-/* Ẩn thanh cuộn khi không sử dụng */
-.TodoWrapper {
-  scrollbar-width: thin;
-  scrollbar-color: #8758ff #f3f3f3;
-}
-
-/* Cho Firefox */
-.TodoWrapper {
+.TodoList {
   scrollbar-width: thin;
 }
 
-.TodoWrapper:hover {
+.TodoList:hover {
   scrollbar-width: auto;
+}
+
+.TodoList {
+  max-height: 200px; 
+  overflow-y: hidden; 
+  transition: overflow 0.3s ease-in-out; 
+}
+
+.TodoListContainer:hover .TodoList {
+  overflow-y: auto;
+}
+
+.TodoList::-webkit-scrollbar {
+  width: 3px;
+}
+
+.TodoList::-webkit-scrollbar-thumb {
+  background-color: #8758ff; 
+  border-radius: 10px; 
+}
+
+.TodoList::-webkit-scrollbar-track {
+  background-color: #f3f3f3;
 }
